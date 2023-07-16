@@ -29,6 +29,18 @@
                     id="cookie"
                     class="clicker__cookie"
                     width="200">
+                    <script>
+                        const counter = document.getElementById("clicker__counter");
+                        const cookie = document.getElementById("cookie");
+                        cookie.onclick = function () {
+                            counter.textContent++;
+                            if(counter.textContent % 2 === 0) {
+                                cookie.width = "200";
+                            } else {
+                                cookie.width = "300"
+                            }
+                        }
+                    </script>
             </div>
         </div>
     </main>    
