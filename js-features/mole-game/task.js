@@ -12,11 +12,11 @@
             }
         
     
-    if(dead.textContent > 5) {
+    if(dead.textContent === '5') {
         alert('You Win!!!');
         dead.textContent = 0;
         lost.textContent = 0;
-    } else if(lost.textContent > 5) {
+    } else if(lost.textContent === '5') {
         alert('You Loose!!!');
         dead.textContent = 0;
         lost.textContent = 0;
