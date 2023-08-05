@@ -1,15 +1,14 @@
 const main = document.getElementById('modal_main');
-const close = document.querySelectorAll('modal__close');
 const success = document.getElementById('modal_success');
-const modal = document.querySelector('modal');
+const closer = document.querySelectorAll('.modal__close');
 
 main.classList.add('modal_active');
 
-
-main.onclick = function () {
-    
-    success.classList.add('modal_active');
-    
-    main.style.display = 'none';
-
-}
+const show = document.querySelector(".show-success");
+    show.onclick = function() {
+    main.classList.remove("modal_active");
+    success.classList.add("modal_active");
+    }
+    closer.forEach(el => el.addEventListener("click",  function(e){ 
+      this.closest('.modal').classList.remove("modal_active"); 
+    }));
