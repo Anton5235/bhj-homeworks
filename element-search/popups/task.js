@@ -1,5 +1,5 @@
-const main = document.getElementById('modal_main');
-const success = document.getElementById('modal_success');
+const main = document.querySelector('#modal_main');
+const success = document.querySelector('#modal_success');
 const closer = document.querySelectorAll('.modal__close');
 
 main.classList.add('modal_active');
