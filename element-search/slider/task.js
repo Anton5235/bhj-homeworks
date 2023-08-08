@@ -4,25 +4,22 @@ const arrowPrev = document.querySelector('.slider__arrow_prev');
 const arrowNext = document.querySelector('.slider__arrow_next');
 
 
-let activeSlideIndex = 0
+let counter = 0;
 function onArrowPrevClick() {
-  activeSlideIndex -= 1
-
+    counter -= 1;
   const lastSlider= sliderItemsElement.children.length - 1
-  if (activeSlideIndex < 0) {
-    activeSlideIndex = lastSlider
+  if (counter < 0) {
+    counter = lastSlider
   }
-
   updateActiveSlide()
 }
+
 function onArrowNextClick() {
-  activeSlideIndex += 1
-
+    counter += 1;
   const lastSlider = sliderItemsElement.children.length - 1
-  if (activeSlideIndex > lastSlider) {
-    activeSlideIndex = 0
+  if (counter > lastSlider) {
+    counter = 0
   }
-
   updateActiveSlide()
 }
 
@@ -32,11 +29,7 @@ function updateActiveSlide() {
   slides.forEach(slide => {
     slide.classList.remove("slider__item_active")
   })
-  
-  
-  const activeSlide = slides[activeSlideIndex]
-  if (activeSlide == null) return
-
+  const activeSlide = slides[counter];
   activeSlide.classList.add("slider__item_active")
 }
 
