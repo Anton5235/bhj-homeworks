@@ -1,12 +1,13 @@
 const menuItems = document.querySelectorAll('.menu__item');
 
 for(let menuItem of menuItems) {
-  menuItem.onclick = onMenuItemClick
+  menuItem.onclick = onMenuItemClick;
 }
 
 function onMenuItemClick(event) {
   const subMenu = this.querySelector('.menu_sub');
-  event.preventDefault() 
-
-  subMenu.classList.toggle('menu_active');
+   if(subMenu !== null) {
+    event.preventDefault(); 
+    subMenu.classList.toggle('menu_active');
+  }
 }
