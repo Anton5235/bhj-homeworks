@@ -1,39 +1,26 @@
-const sliderItemsElement = document.querySelector('.slider__items');
+const sliderItemsElements = document.querySelectorAll('.slider__item');
+const activeSlide = Array.from(sliderItemsElements).findIndex(slide => slide.classList.contains('slider__item_active'));
+
 const arrowPrev = document.querySelector('.slider__arrow_prev');
 const arrowNext = document.querySelector('.slider__arrow_next');
-const slides = Array.from(sliderItemsElement.children);
-const lastSlider= slides.length - 1;
 
-init();
-function init () {
-let counter = 0;
-function onArrowPrevClick() {
-    counter -= 1;
-  const lastSlider= sliderItemsElement.children.length - 1;
-  if (counter < 0) {
-    counter = lastSlider;
-  }
-  updateActiveSlide()
+
+function init(n) {
+  let position = (n + sliderItemsElements.length) % sliderItemsElements.length;
+  sliderItemsElements.forEach(item => {
+    item.classList.remove('slider__item_active');
+  });
+  sliderItemsElements[position].classList.toggle("slider__item_active");
 }
 
-function onArrowNextClick() {
-    counter += 1;
-  const lastSlider = sliderItemsElement.children.length - 1;
-  if (counter > lastSlider) {
-    counter = 0;
-  }
-  updateActiveSlide()
-}
+init(activeSlide);
 
+document.querySelector('.slider__arrow_prev').addEventListener('click', () => {
+  let activeSlide = Array.from(sliderItemsElements).findIndex(slide => slide.classList.contains('slider__item_active'));
+  init(activeSlide - 1);
+});
 
-function updateActiveSlide() {
-  slides.forEach(slide => {
-    slide.classList.remove("slider__item_active");
-  })
-  const activeSlide = slides[counter];
-  activeSlide.classList.add("slider__item_active");
-}
-
- arrowPrev.onclick = onArrowPrevClick;
- arrowNext.onclick = onArrowNextClick;
-}
+document.querySelector('.slider__arrow_next').addEventListener('click', () => {
+  let activeSlide = Array.from(sliderItemsElements).findIndex(slide => slide.classList.contains('slider__item_active'));
+  init(activeSlide + 1);
+});
