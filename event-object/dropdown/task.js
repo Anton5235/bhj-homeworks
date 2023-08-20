@@ -5,7 +5,7 @@ const dropItem = dropList.querySelectorAll('.dropdown__item');
 
 dropValue.onclick = function () {
 
-    dropList.classList.add('dropdown__list_active')
+    dropList.classList.toggle ('dropdown__list_active')
 
     Array.from(dropItem).forEach(item => 
         item.addEventListener('click', (event) => {
