@@ -1,5 +1,5 @@
 const reveal = document.querySelectorAll('.reveal');
-window.addEventListener('scroll', () => {
+document.addEventListener('scroll', () => {
 reveal.forEach(item => {
     const {top, bottom} = item.getBoundingClientRect()
 
