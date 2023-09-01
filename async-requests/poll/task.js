@@ -5,16 +5,16 @@ fetch('https://students.netoservices.ru/nestjs-backend/poll')
   .then(response => response.json())
   .then(data => {
     pollTitle.textContent = data.data.title;
-    let button = document.createElement('button');
+    
     data.data.answers.forEach(answer => {
-        
+      let button = document.createElement('button');
       button.className = 'poll__answer';
-      button.textContent = answer;
+      button.textContent = answer
       button.addEventListener('click', () => {
-        confirm('Спасибо, ваш голос засчитан!')
+        
+        alert('Спасибо, ваш голос засчитан!')
       });
-     
+      pollAnswers.appendChild(button);
     });
-    pollAnswers.appendChild(button);
+    
   });
-
