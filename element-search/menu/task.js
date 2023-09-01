@@ -5,8 +5,10 @@ for(let menuItem of menuItems) {
 }
 
 function onMenuItemClick(event) {
+  if(subMenu != null){
   const subMenu = this.querySelector('.menu_sub');
   event.preventDefault() 
 
   subMenu.classList.toggle('menu_active');
+  }
 }
