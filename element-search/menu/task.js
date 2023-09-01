@@ -1,14 +1,11 @@
-const menuItems = document.querySelectorAll('.menu__item');
+const menuItem = document.querySelectorAll('.menu__item');
 
-for(let menuItem of menuItems) {
-  menuItem.onclick = onMenuItemClick
-}
-
-function onMenuItemClick(event) {
-  if(subMenu != null){
-  const subMenu = this.querySelector('.menu_sub');
-  event.preventDefault() 
-
-  subMenu.classList.toggle('menu_active');
-  }
-}
+menuItem.forEach(item => {
+  const link = item.querySelector('.menu__link');
+  const menuSub = item.querySelector('.menu_sub');
+  link.addEventListener('click', (event) => {
+    if (menuSub !== null) {
+      event.preventDefault(); 
+      menuSub.classList.toggle('menu_active'); 
+    }
+  })})
