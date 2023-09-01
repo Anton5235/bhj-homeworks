@@ -13,6 +13,6 @@ form.addEventListener('submit', function(event) {
     }
   };
 
-  xhr.open('POST', 'https://students.netoservices.ru/nestjs-backend/upload');
+  xhr.open('POST', 'https://students.netoservices.ru/nestjs-backend/upload', true);
   xhr.send(formData);
 });
