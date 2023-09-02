@@ -15,8 +15,9 @@ xhr.onload = function() {
     let valute = response.response.Valute;
 
     for (let key in valute) {
-        let item = document.createElement('div');
-        item.className = 'item';
+    let item = document.createElement('div');
+    item.className = 'item';
+    items.appendChild(item);
 
     let itemCode = document.createElement('div');
     itemCode.className = 'item__code';
@@ -33,6 +34,6 @@ xhr.onload = function() {
     itemCurrency.innerText = 'руб.';
     item.appendChild(itemCurrency);
 
-    items.appendChild(item);
+    
 }
 }
